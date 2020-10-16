@@ -26,6 +26,11 @@ List::List() {
     _size = 0;
 }
 
+// Undone
+List::List(std::ifstream& reader) {
+    
+}
+
 List::~List() {
     Node* deletedNode;
     while (head != nullptr) {
@@ -48,18 +53,35 @@ void List::pushFront(Flat* flat) {
     _size++;
 }
 
-int List::size() {
-    return _size;
+void List::popBack() {
+    if (tail->prev != head) {
+        Node* deletedNode = tail->prev;
+        deletedNode->prev->next = tail;
+        tail->prev = deletedNode->prev;
+        delete deletedNode;
+        deletedNode = nullptr;
+    }
 }
 
-std::ostream& operator<<(std::ostream& writer, List& list) {
-    Node* p = list.head;
-    while (p->next->next != nullptr) {
-        std::cout << p->next->flat->number << ' ';
-        p = p->next;
+void List::popFront() {
+    if (head->next != tail) {
+        Node* deletedNode = head->next;
+        head->next = deletedNode->next;
+        deletedNode->next->prev = head;
+        delete deletedNode;
+        deletedNode = nullptr;
     }
-    std::cout << std::endl;
-    return writer;
+}
+
+void List::pop(Node* deletedNode) {
+    if (deletedNode != head && deletedNode != tail) {
+        deletedNode->next->prev = deletedNode->prev;
+        deletedNode->prev->next = deletedNode->next;
+    }
+}
+
+int List::size() {
+    return _size;
 }
 
 #pragma endregion

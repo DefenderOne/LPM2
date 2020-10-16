@@ -9,6 +9,9 @@ int main() {
     list.pushBack(new Flat(1000));
     list.pushFront(new Flat(55));
     std::cout << list << std::endl;
+    list.popFront();
+    list.popBack();
+    std::cout << list << std::endl;
 
     system("pause");
 }
