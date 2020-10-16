@@ -29,8 +29,11 @@ class Flat {
     Flat(int roomsCount, int level, Square* square, int membersCount, Address* address);
     ~Flat();
 
-    Address GetAddress();
+    int GetRoomsCount();
+    int GetLevel();
     Square GetSquare();
+    int GetMembersCount();
+    Address GetAddress();
 
     // (this > obj) => 1; (this == obj) => 0; (this < obj) => -1
     int Compare(Flat* obj);

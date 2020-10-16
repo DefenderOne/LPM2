@@ -30,12 +30,24 @@ Flat::~Flat() {
     address = nullptr;
 }
 
-Address Flat::GetAddress() {
-    return *address;
+int Flat::GetRoomsCount() {
+    return roomsCount;
+}
+
+int Flat::GetLevel() {
+    return level;
 }
 
 Square Flat::GetSquare() {
     return *square;
+}
+
+int Flat::GetMembersCount() {
+    return membersCount;
+}
+
+Address Flat::GetAddress() {
+    return *address;
 }
 
 int Flat::Compare(Flat* obj) {

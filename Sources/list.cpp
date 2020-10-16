@@ -50,8 +50,6 @@ List::List(std::ifstream& reader) {
         Flat* flat = new Flat(roomsCount, level, square, membersCount, address);
         Node* insertedNode = new Node(flat);
         pushBefore(findPlaceByAscending(insertedNode), flat);
-        // Remove when tested out
-        std::cout << flat->GetAddress().GetFullAddress() << std::endl;
     }
 }
 
@@ -105,6 +103,14 @@ void List::pop(Node* deletedNode) {
         deletedNode->prev->next = deletedNode->next;
         _size--;
     }
+}
+
+Flat& List::operator[](int index) {
+    Node* node = head->next;
+    for (int i = 1; i <= index; i++) {
+        node = node->next;
+    }
+    return *(node->flat);
 }
 
 Node* List::findPlaceByAscending(Node* insertedNode) {

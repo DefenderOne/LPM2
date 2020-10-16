@@ -33,7 +33,7 @@ class List {
     void pushFront(Flat* flat);
     void popBack();
     void popFront();
-    
+    Flat& operator[](int index);
 
     int size();
     friend std::ostream& operator<<(std::ostream& writer, List& list);
