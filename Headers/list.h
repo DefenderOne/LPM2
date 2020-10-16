@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Flat;
 class Node {
     public:
@@ -14,9 +16,13 @@ class List {
     private:
     Node* head;
     Node* tail;
-    int size;
+    int _size;
 
     public:
     List();
     ~List();
+    void pushBack(Flat* flat);
+    void pushFront(Flat* flat);
+    int size();
+    friend std::ostream& operator<<(std::ostream& writer, List& list);
 };
