@@ -38,17 +38,17 @@ Square Flat::GetSquare() {
     return *square;
 }
 
-int Flat::Compare(const Flat& obj) {
+int Flat::Compare(Flat* obj) {
     int result = -1;
-    if (address->street > obj.address->street || 
-        address->street == obj.address->street && address->buildingNumber > obj.address->buildingNumber ||
-        address->street == obj.address->street && address->buildingNumber == obj.address->buildingNumber) {
+    if (address->street > obj->address->street || 
+        address->street == obj->address->street && address->buildingNumber > obj->address->buildingNumber ||
+        address->street == obj->address->street && address->buildingNumber == obj->address->buildingNumber) {
             result = 1;
         }
     else {
-        if (address->street == obj.address->street && 
-        address->buildingNumber == obj.address->buildingNumber &&
-        address->flatNumber == obj.address->flatNumber) {
+        if (address->street == obj->address->street && 
+        address->buildingNumber == obj->address->buildingNumber &&
+        address->flatNumber == obj->address->flatNumber) {
             result = 0;
         }
     }

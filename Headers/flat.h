@@ -7,16 +7,16 @@ class Address {
     std::string street;
     int buildingNumber;
     int flatNumber;
-    Address(std::string street, int buildingNumber, int flatNumber);
+    Address(std::string street = std::string(), int buildingNumber = int(), int flatNumber = int());
     std::string GetFullAddress();
-}
+};
 
 class Square {
     public:
     double overallSquare;
     double livingSquare;
-    Square(double overallSqaure, double livingSquare);
-}
+    Square(double overallSqaure = double(), double livingSquare = double());
+};
 
 class Flat {
     private:
@@ -28,16 +28,10 @@ class Flat {
     public:
     Flat(int roomsCount, int level, Square* square, int membersCount, Address* address);
     ~Flat();
-    // Contains string street, building number, flat number
-    Address GetAddress();
 
-    // Contains Overall and Living Squares
+    Address GetAddress();
     Square GetSquare();
 
-    /*
-        => 1 if this is bigger then obj
-        => 0 if this and obj are equal
-        => -1 if this is smaller then obj
-    */
-    int Compare(const Flat& obj);
+    // (this > obj) => 1; (this == obj) => 0; (this < obj) => -1
+    int Compare(Flat* obj);
 };

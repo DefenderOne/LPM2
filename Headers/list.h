@@ -19,12 +19,13 @@ class List {
     int _size;
 
     void pop(Node* deletedNode);
-    Node* findPlaceByAscending();
-    Node* findPlaceByDescending();
+    Node* findPlaceByAscending(Node* insertedNode);
+    Node* findPlaceByDescending(Node* insertedNode);
+    void pushAfter(Node* node, Flat* flat);
+    void pushBefore(Node* node, Flat* flat);
 
     public:
     List();
-    // Undone
     List(std::ifstream& reader);
     ~List();
 
@@ -33,8 +34,7 @@ class List {
     void popBack();
     void popFront();
     
-    int size();
 
-    // Undone
+    int size();
     friend std::ostream& operator<<(std::ostream& writer, List& list);
 };
